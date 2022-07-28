@@ -29,6 +29,14 @@ Length before removing irrelevant results:  34
 Length before removing irrelevant results:  18
 ```
 
+# Codes
+
+| Code               | Goal                                                                    |
+|--------------------|-------------------------------------------------------------------------|
+| msglow.py          | To extract title, date, url and news content                            |
+| data_processing.py | To filter the results and export to JSON to be consumed by Google Chart |
+| show.html          | HTML page to show timeline using Google Chart                           |
+
 # Result
 
 ![image](https://github.com/arwankhoiruddin/msglow-psglow-text-analysis/raw/main/timeline.png)
