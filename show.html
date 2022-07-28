@@ -75,7 +75,7 @@
 
         for (var i=0; i < url.length; i++) {
             titleData = judul[i] + "\n" + berita[i];
-            dataTable.addRow(['Kompas.com', judul[i], berita[i], new Date(tahun[i], bulan[i] - 1, tgl[i]), new Date(tahun[i], bulan[i], tgl[i])]);         
+            dataTable.addRow(['Kompas.com', judul[i], titleData, new Date(tahun[i], bulan[i] - 1, tgl[i]), new Date(tahun[i], bulan[i], tgl[i])]);         
         }
 
         chart.draw(dataTable);
