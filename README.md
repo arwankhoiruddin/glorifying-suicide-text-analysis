@@ -1,6 +1,6 @@
 # Introduction
 
-In this mini research, we are trying to see how glorifying suicide such as jihad and harakiri, perceived by internet news and internet users.
+In this mini research, we are trying to see how media, in our case kompas.com, see conflict between MS Glow and PS Glow
 
 # Members
 
