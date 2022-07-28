@@ -68,12 +68,14 @@
         var dataTable = new google.visualization.DataTable();
 
         dataTable.addColumn({ type: 'string', id: 'News' });
-        dataTable.addColumn({ type: 'string', id: 'Title' });
+        dataTable.addColumn({ type: 'string', id: 'dummy bar label' });
+        dataTable.addColumn({ type: 'string', role: 'tooltip' });
         dataTable.addColumn({ type: 'date', id: 'Start' });
         dataTable.addColumn({ type: 'date', id: 'End' });
 
         for (var i=0; i < url.length; i++) {
-            dataTable.addRow(['Kompas.com', judul[i], new Date(tahun[i], bulan[i] - 1, tgl[i]), new Date(tahun[i], bulan[i], tgl[i])]);         
+            titleData = judul[i] + "\n" + berita[i];
+            dataTable.addRow(['Kompas.com', judul[i], berita[i], new Date(tahun[i], bulan[i] - 1, tgl[i]), new Date(tahun[i], bulan[i], tgl[i])]);         
         }
 
         chart.draw(dataTable);
