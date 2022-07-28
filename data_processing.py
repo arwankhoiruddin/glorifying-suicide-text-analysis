@@ -3,8 +3,10 @@ import json
 from matplotlib.font_manager import json_dump
 
 def printList(list):
+    counter = 0
     for i in list:
-        print(i)
+        print(str(counter) + ": " + i)
+        counter += 1
     print()
 
 f = open('msglow_kompas.txt', 'r')
@@ -30,6 +32,7 @@ for line in f:
 
 # remove duplicates
 
+print("Number of URLs found: " + str(len(url)))
 print("Length before removing duplicates: ", len(url))
 i = 0
 j = 0
@@ -72,10 +75,10 @@ listTanggal = []
 for tgl in tanggal:
     t = tgl.split('/')
     listTanggal.append({'tahun': t[2], 'bulan': t[1], 'tanggal': t[0]})
-    print(t)
-print(listTanggal)
 
 jsonTanggal = json_dump(listTanggal, 'tanggal.json')
 jsonURL = json_dump(url, 'url.json')
 jsonJudul = json_dump(judul, 'judul.json')
 jsonBerita = json_dump(berita, 'berita.json')
+
+printList(judul)
