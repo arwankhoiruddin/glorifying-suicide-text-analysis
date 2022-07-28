@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <style>
+        #detailedCharts {
+            overflow-x: scroll;
+        }
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+        var judul = []
+        var url = []
+        var tgl = []
+        var bulan = []
+        var tahun = []
+        var berita = []
+
+        fetch("http://localhost/msglow/judul.json")
+        .then(response => response.json())
+        .then(data => {
+            for(var i = 0; i < data.length; i++){
+                judul.push(data[i])
+            }
+            console.log(judul)
+        })
+
+        fetch("http://localhost/msglow/url.json")
+        .then(response => response.json())
+        .then(data => {
+            for(var i = 0; i < data.length; i++){
+                url.push(data[i])
+            }
+            console.log(url)
+        })
+
+        fetch("http://localhost/msglow/tanggal.json")
+        .then(response => response.json())
+        .then(data => {
+            for(var i = 0; i < data.length; i++){
+                tgl.push(data[i].tanggal)
+                bulan.push(data[i].bulan)
+                tahun.push(data[i].tahun)
+            }
+            console.log(tgl)
+            console.log(bulan)
+            console.log(tahun)
+        })
+
+        fetch("http://localhost/msglow/berita.json")
+        .then(response => response.json())
+        .then(data => {
+            for(var i = 0; i < data.length; i++){
+                berita.push(data[i])
+            }
+            console.log(berita)
+        })
+
+        // build the data
+
+
+      google.charts.load('current', {'packages':['timeline']});
+      google.charts.setOnLoadCallback(drawChart);
+      let chart = new google.visualization.ColumnChart(document.getElementById('detailedCharts'));
+
+      function drawChart() {
+        var container = document.getElementById('timeline-tooltip');
+        var chart = new google.visualization.Timeline(container);
+        var dataTable = new google.visualization.DataTable();
+
+        dataTable.addColumn({ type: 'string', id: 'News' });
+        dataTable.addColumn({ type: 'string', id: 'Title' });
+        dataTable.addColumn({ type: 'date', id: 'Start' });
+        dataTable.addColumn({ type: 'date', id: 'End' });
+
+        for (var i=0; i < url.length; i++) {
+            dataTable.addRow(['Kompas.com', judul[i], new Date(tahun[i], bulan[i] - 1, tgl[i]), new Date(tahun[i], bulan[i], tgl[i])]);         
+        }
+
+        chart.draw(dataTable);
+      }
+    </script>
+    <title>SICSS-Group 2</title>
+  </head>
+  <body>
+    <h1>MS Glow vs PS Glow</h1>
+    <div id="timeline-tooltip" style="height: 300px;"></div>
+
+  </body>
+</html>

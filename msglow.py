@@ -46,11 +46,20 @@ def scrollPages(url):
     html = browser.find_elements(By.TAG_NAME, "html")
     html[0].send_keys(Keys.END)
 
+    foundLinks = []
     pages = soup.find('li', class_='b_pag')
     for page in pages:
         links = page.find_all('a', class_='b_widePag')
         for link in links:
-            print(link.get('href'))
+            l = link.get('href')
+            if l is not None:
+                foundLinks.append(l)
+
+    for link in foundLinks:
+        print(link)
+        url = "https://www.bing.com" + link
+        print(url)
+        browser = start_chrome(url, options = options)
 
     browser.close()
 
