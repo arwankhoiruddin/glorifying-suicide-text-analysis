@@ -33,6 +33,8 @@ Length before removing irrelevant results:  18
 
 ![image](https://github.com/arwankhoiruddin/msglow-psglow-text-analysis/raw/main/timeline.png)
 
+This chart can be seen in live [here](https://sicss2.000webhostapp.com/): 
+
 # Members
 
 * Arwan Ahmad Khoiruddin
